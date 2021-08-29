@@ -9,4 +9,5 @@ export class Usuario {
     public foto: string
     public tipo: string
     public dataNascimento: Date
+  tipoUser: (event: any) => void
 }
