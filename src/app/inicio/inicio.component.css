@@ -1,0 +1,17 @@
+.bground {
+  
+  background-image: linear-gradient(to bottom, #7B91C9, #061B43);
+  }
+
+.but1:hover{
+  background-color: #CA2E44;
+ 
+}
+
+.but2:hover{
+  background-color:#DBD040;
+}
+
+.lh1{
+  background-color: #061B43;
+}

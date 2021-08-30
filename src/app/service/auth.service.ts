@@ -3,6 +3,8 @@ import {HttpClient} from '@angular/common/http'
 import { UsuarioLogin } from '../model/UsuarioLogin';
 import { Observable } from 'rxjs';
 import { Usuario } from '../model/Usuario';
+import { environment } from 'src/environments/environment.prod';
+
 
 @Injectable({
   providedIn: 'root'
@@ -18,4 +20,17 @@ return this.http.post<UsuarioLogin>('https://blogcamisadez.herokuapp.com/usuario
   cadastrar(Usuario: Usuario): Observable<Usuario>{
     return this.http.post<Usuario>('https://blogcamisadez.herokuapp.com/usuarios/cadastrar', Usuario)
       }
+
+      logado(){
+        let ok: boolean = false
+      
+        if(environment.token != ''){
+          ok = true
+        }
+        return ok
+      }
+
 }
+
+
+
