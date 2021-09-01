@@ -31,3 +31,8 @@ ul.social-network li{
 .fa-linkedin:hover{
     color: #0A66C2;
 }
+
+.corfooter{
+    background-image: linear-gradient(to bottom, #7B91C9, #061B43);
+    opacity: 0.99;
+  }

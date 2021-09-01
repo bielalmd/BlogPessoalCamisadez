@@ -1,99 +1,175 @@
-
+<!--Cartão de entrada-->
 <div class="container-fluid">
+  <div class="row bground d-flex align-items-center">
+    <div class="col-md-6">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+          <h1 class="fs-54 font-weight-bolder">Camisadez</h1>
 
-<div class="row bground  d-flex align-items-center">
-
-  <div class="col-md-6">
-
-    <div class="row d-flex justify-content-center">
-
-      <div class="col-md-6">
-
-        <h1>seu texto aqui</h1>
-
-        <h5>use esse espaço pra texto</h5>
-
+          <h5 class="fs-18 font-weight-bold ">Seja bem vindo(a)!</h5>
+        </div>
       </div>
 
-    </div>
+      <div class="row d-flex justify-content-center mt-5">
+        <div class="col-md-6">
+          <a
+            class="btn btn-light mr-3 my-2 but1"
+            data-toggle="modal"
+            data-target="#modEX"
+          >
+            Publicar
+          </a>
 
-    <div class="row d-flex justify-content-center mt-5">
-
-      <div class="col-md-6">
- 
-        <button class="btn btn-light mr-3 but1" data-toggle="modal" data-target="#modEX">Publicar</button>
-
-        <button class="btn btn-light but2">Ver Postagens</button>
-
+          <a class="btn btn-light but2 " href="#postagen">Ver Postagens</a>
+        </div>
       </div>
-
     </div>
 
+    <div class="col-md-6">
+      <img src="https://imgur.com/CvwB8V7.png" alt="imagem" height="400px" />
+    </div>
   </div>
-
-  <div class="col-md-6">
-    <img src="https://imgur.com/CvwB8V7.png" alt="imagem" height="400px">
-  </div>
-
 </div>
-
-</div>
-
-
-
+<!--Cartão de entrada-->
 
 <!-- Modal -->
-<div class="modal fade" id="modEX" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
+<div
+  class="modal fade"
+  id="modEX"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered ">
+    <div class="modal-content bground">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+        <h5 class="modal-title font-weight-bolder " id="exampleModalLabel">Nova postagem.</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Fechar"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        
+
+        <div class="form-group">
+          <!-- <label for="titulo">Titulo:</label> -->
+          <input type="text" class="form-control " id="titulo" placeholder="Digite o titulo da postagem...">
+        </div>
+
+        <div class="form-group my-4">
+          <!-- <label for="texto">Texto:</label> -->
+          <textarea name="" id="texto"rows="6" class="form-control" placeholder="digite seu texto..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="texto" class="text-white">Escolha um tema ou <a href="" class="text-warning">cadastre um novo</a> : </label>
+          <select name="tema" id="tema" class="form-control">
+          <option value="">Temas</option>
+        </select>
+        </div>
+
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary but1" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary but2">Salvar mudanças</button>
+        <button
+          type="button"
+          class="btn btn-danger but1"
+          data-dismiss="modal"
+        >
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-success but2">
+          Publicar
+        </button>
       </div>
     </div>
   </div>
 </div>
+<!-- Modal -->
 
-<br>
+<!-- Postagens -->
+<div class="container mb-5 mt-5" id="postagen">
+  <nav>
+    <div
+      class="nav nav-tabs d-flex justify-content-center"
+      id="myTab"
+      role="tablist"
+    >
+      <a
+        class="nav-item nav-link active font-weight-bolder"
+        id="MinhasPostagens-tab"
+        data-toggle="tab"
+        href="#MinhasPostagens"
+        role="tab"
+        aria-controls="MinhasPostagens"
+        aria-selected="true"
+        >Minhas Postagens</a
+      >
 
-  <div class="container">
+      <a
+        class="nav-item nav-link font-weight-bolder"
+        id="todasPostagens-tab"
+        data-toggle="tab"
+        href="#todasPostagens"
+        role="tab"
+        aria-controls="todasPostagens"
+        aria-selected="false"
+        >Todas Postagens</a
+      >
 
-    <nav>
-
-      <div class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
-
-        <a class="nav-item nav-link active" id="MinhasPostagens-tab" data-toggle="tab" href="#MinhasPostagens" role="tab" aria-controls="MinhasPostagens" aria-selected="true">Minhas Postagens</a>
-
-        <a class="nav-item nav-link" id="todasPostagens-tab" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="todasPostagens" aria-selected="false">Todas Postagens</a>
-
-        <a class="nav-item nav-link" id="postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab" aria-controls="postagemTema" aria-selected="false">Postagens por tema</a>
-
-      </div>
-
-    </nav>
-
-    <div class="tab-content" id="myTabContent">
-
-      <div class="tab-pane fade show active" id="MinhasPostagens" role="tabpanel" aria-labelledby="MinhasPostagens-tab">Lorem ipsum dolor sit.</div>
-
-      <div class="tab-pane fade" id="todasPostagens" role="tabpanel" aria-labelledby="todasPostagens-tab">Lorem, ipsum.</div>
-
-      <div class="tab-pane fade" id="postagemTema" role="tabpanel" aria-labelledby="postagemTema-tab">Lorem ipsum dolor sit amet.</div>
-
+      <a
+        class="nav-item nav-link font-weight-bolder"
+        id="postagemTema-tab"
+        data-toggle="tab"
+        href="#postagemTema"
+        role="tab"
+        aria-controls="postagemTema"
+        aria-selected="false"
+        >Postagens por tema</a
+      >
     </div>
-      </div>
-      <br>
-      
-      <body class="">
+  </nav>
+
+  <div class="tab-content" id="myTabContent">
+    <div
+      class="tab-pane fade show active"
+      id="MinhasPostagens"
+      role="tabpanel"
+      aria-labelledby="MinhasPostagens-tab"
+    >
+      Lorem ipsum dolor sit.
+    </div>
+
+    <div
+      class="tab-pane fade"
+      id="todasPostagens"
+      role="tabpanel"
+      aria-labelledby="todasPostagens-tab"
+    >
+      Lorem, ipsum.
+    </div>
+
+    <div
+      class="tab-pane fade"
+      id="postagemTema"
+      role="tabpanel"
+      aria-labelledby="postagemTema-tab"
+    >
+      Lorem ipsum dolor sit amet.
+    </div>
+  </div>
+</div>
+<br/>
+<!-- Postagens -->
+
+
+
+
+<!-- <body class="">
         <div class="container-fluid">
       
          
@@ -184,10 +260,4 @@
           </table>
       
         </div>
-      </body>
-  
-
-
-
-
-
+      </body> -->
