@@ -36,3 +36,8 @@ ul.social-network li{
     background-image: linear-gradient(to bottom, #7B91C9, #061B43);
     opacity: 0.99;
   }
+
+.corfooter2{
+    background-image: linear-gradient(to top, #7B91C9, #061B43);
+    opacity: 0.68;
+}
