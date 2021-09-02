@@ -7,5 +7,17 @@
     min-height: 100vh;
 }
 
+.bground {
+  
+    background-image: linear-gradient(80deg,#CEB13B 1rem, #db635b 20rem,#d1d5df ,#7B91C9, #061B43);
+    }
+
+h1{
+    text-shadow: 0px 2px 5px black;
+}
+
+input{
+    text-shadow: 2px 3px 8px black;;
+}
 
 
