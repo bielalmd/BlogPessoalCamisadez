@@ -12,9 +12,11 @@ import { TemaService } from '../service/tema.service';
 export class TemaComponent implements OnInit {
 
   tema: Temas = new Temas();
+  listaTemas: Temas[]
 
   constructor(
-    private router: Router, private temasService: TemaService
+    private router: Router, 
+    private temasService: TemaService
   ) { }
 
   ngOnInit() {

@@ -24,6 +24,10 @@ export class TemaService {
     
   }
 
+  getAllTemas(): Observable<Temas[]>{
+    return this.http.get<Temas[]>('https://blogcamisadez.herokuapp.com/temas')
+  }
+
 }
 
 
