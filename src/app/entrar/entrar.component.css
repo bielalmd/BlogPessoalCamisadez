@@ -1,6 +1,6 @@
 
-#img-bg{
-    background-image:url('https://images.hdqwalls.com/download/alexander-arnold-in-fifa-22-kz-1360x768.jpg');
+.img-bg{
+    background-image:url('https://imgur.com/5cw8jmb.jpg');
     background-position:center;
     background-size:cover;
     background-repeat:no-repeat;
@@ -20,4 +20,5 @@ input{
     text-shadow: 2px 3px 8px black;;
 }
 
+.card{          background-color:#ffffff95;     padding: 30px;     border-radius: 4%;     box-shadow: 3px 3px 1px 0px #00000070;        }
 

@@ -24,12 +24,21 @@ export class TemaComponent implements OnInit {
       /* alert('Sua sessão expirou, faça o Login novamente...') */
       this.router.navigate(['/entrar'])
     }
+
+    this.findAllTemas()
+
+  }
+  findAllTemas(){
+    this.temasService.getAllTemas().subscribe((resp: Temas[]) =>{
+      this.listaTemas = resp
+    })
   }
 
   cadastrarTemas(){
     this.temasService.postTema(this.tema).subscribe((resp: Temas) => {
       this.tema = resp
       alert('Seu tema foi cadastrado !!')
+      this.findAllTemas()
       this.tema = new Temas()
     })
   }
