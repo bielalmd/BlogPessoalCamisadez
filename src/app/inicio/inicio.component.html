@@ -6,7 +6,7 @@
         <div class="col-md-6">
           <h1 class="fs-54 font-weight-bolder">Camisadez</h1>
 
-          <h5 class="fs-18 font-weight-bold ">Seja bem vindo(a)!</h5>
+          <h5 class="fs-18 font-weight-bold">Seja bem vindo(a)!</h5>
         </div>
       </div>
 
@@ -20,7 +20,7 @@
             Publicar
           </a>
 
-          <a class="btn btn-light but2 " href="#postagen">Ver Postagens</a>
+          <a class="btn btn-light but2" href="#postagen">Ver Postagens</a>
         </div>
       </div>
     </div>
@@ -41,10 +41,12 @@
   aria-labelledby="exampleModalLabel"
   aria-hidden="true"
 >
-  <div class="modal-dialog modal-dialog-centered ">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bground">
       <div class="modal-header">
-        <h5 class="modal-title font-weight-bolder " id="exampleModalLabel">Nova postagem.</h5>
+        <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">
+          Nova postagem.
+        </h5>
         <button
           type="button"
           class="close"
@@ -55,36 +57,42 @@
         </button>
       </div>
       <div class="modal-body">
-
         <div class="form-group">
           <!-- <label for="titulo">Titulo:</label> -->
-          <input type="text" class="form-control " id="titulo" placeholder="Digite o titulo da postagem...">
+          <input
+            type="text"
+            class="form-control"
+            id="titulo"
+            placeholder="Digite o titulo da postagem..."
+          />
         </div>
 
         <div class="form-group my-4">
           <!-- <label for="texto">Texto:</label> -->
-          <textarea name="" id="texto"rows="6" class="form-control" placeholder="digite seu texto..."></textarea>
+          <textarea
+            name=""
+            id="texto"
+            rows="6"
+            class="form-control"
+            placeholder="digite seu texto..."
+          ></textarea>
         </div>
 
         <div class="form-group">
-          <label for="texto" class="text-white">Escolha um tema ou <a data-dismiss="modal" routerLink='/tema'>cadastre um novo</a> : </label>
-          <select name="tema" id="tema" class="form-control">
-          <option value="">Temas</option>
-        </select>
+          <label for="texto" class="text-white"
+            >Escolha um tema ou
+            <a data-dismiss="modal" routerLink="/tema">cadastre um novo</a> :
+          </label>
+          <select name="tema" id="tema" class="form-control"ngModel change>
+            <option value="{{tema.id}}" *ngFor='let tema of listaTemas'>{{temas.descricao}}</option>
+          </select>
         </div>
-
       </div>
       <div class="modal-footer">
-        <button
-          type="button"
-          class="btn btn-danger but1"
-          data-dismiss="modal"
-        >
+        <button type="button" class="btn btn-danger but1" data-dismiss="modal">
           Cancelar
         </button>
-        <button type="button" class="btn btn-success but2">
-          Publicar
-        </button>
+        <button type="button" class="btn btn-success but2">Publicar</button>
       </div>
     </div>
   </div>
@@ -163,11 +171,8 @@
     </div>
   </div>
 </div>
-<br/>
+<br />
 <!-- Postagens -->
-
-
-
 
 <!-- <body class="">
         <div class="container-fluid">

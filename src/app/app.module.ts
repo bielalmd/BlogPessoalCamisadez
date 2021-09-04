@@ -13,6 +13,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { TemaComponent } from './tema/tema.component';
 import { TemaEditComponent } from './tema-edit/tema-edit.component';
+import { TemaDeleteComponent } from './tema-delete/tema-delete.component';
 
 
 
@@ -25,7 +26,8 @@ import { TemaEditComponent } from './tema-edit/tema-edit.component';
     RodapeComponent,
     InicioComponent,
     TemaComponent,
-    TemaEditComponent
+    TemaEditComponent,
+    TemaDeleteComponent
   ],
   imports: [
     BrowserModule,
