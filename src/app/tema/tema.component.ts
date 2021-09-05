@@ -14,14 +14,10 @@ export class TemaComponent implements OnInit {
   tema: Temas = new Temas();
   listaTemas: Temas[]
 
-  constructor(
-    private router: Router, 
-    private temasService: TemaService
-  ) { }
+  constructor(private router: Router, private temasService: TemaService) { }
 
   ngOnInit() {
     if(environment.token == ''){
-      /* alert('Sua sessão expirou, faça o Login novamente...') */
       this.router.navigate(['/entrar'])
     }
 

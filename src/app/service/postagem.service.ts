@@ -14,23 +14,14 @@ export class PostagemService {
   token = {
     headers: new HttpHeaders().set('Authorization', environment.token) // atenção nessa linha juntamento com 'Authorization//
  }
- getAllPostagens(){
 
- }
- postPostagem(postagem: Postagem): Observable<Postagem>{
-return this.http.post<Postagem>('https://blogcamisadez.herokuapp.com/postagens', postagem, this.token)
- }
+getAllPostagens(){
 
- putPostagem(){
+}
 
- }
- getPostagemById(){
+  postPostagem(postagem: Postagem): Observable<Postagem>{
+    return this.http.post<Postagem>('https://blogcamisadez.herokuapp.com/postagens',postagem, this.token)
 
- }
- deletePostagem(){
+  }
 
- }
- getPostagemByTitulo(){
-
- }
 }

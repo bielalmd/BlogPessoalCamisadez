@@ -17,40 +17,67 @@ import { TemaService } from '../service/tema.service';
 export class InicioComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
+  listaPostagens: Postagem[]
 
 
   tema: Temas = new Temas()
   listaTemas: Temas[]
+  idTema: number;
 
-
+  
   usuario: Usuario = new Usuario()
+  idUser = environment.id
+  
 
   constructor(
     private temaService: TemaService,
     private router: Router,
-    private postageService: PostagemService,
+    private postagemService: PostagemService,
     private authService: AuthService
+    
   ) { }
 
   ngOnInit() {
     if(environment.token == ''){
-      /* alert('Sua sessão expirou, faça o Login novamente...') */
       this.router.navigate(['/entrar'])
     }
+
+    
+    this.findAllTemas()
   }
+  
 
   findAllTemas(){
     this.temaService.getAllTemas().subscribe((resp: Temas[]) =>{
       this.listaTemas = resp
-    });
-
+    })
   }
-  findTemaById(id:number){
+  findTemaById(id: number){
     this.temaService.getTemaById(id).subscribe((resp: Temas) =>{
-
-    });
+      this.tema = resp
+    })
   }
   findByIdUser(){
-    this.authService.getUserById(this.idUser).subscribe
+    this.authService.getUserById(this.idUser).subscribe((resp: Usuario)=>{
+      this.usuario = resp
+    })
   }
-}
+
+    publicar(){
+      this.tema.id = this.idTema
+      this.postagem.tema = this.tema
+
+      this.usuario.id = this.idUser
+      this.postagem.usuario = this.usuario
+
+      console.log(this.postagem)
+
+      
+      this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
+        this.postagem = resp
+        alert('FUNCIONO FILHO DA PUTAAAAAA')
+        this.postagem = new Postagem() 
+      })
+
+    }
+  }
