@@ -15,8 +15,13 @@ export class PostagemService {
     headers: new HttpHeaders().set('Authorization', environment.token) // atenção nessa linha juntamento com 'Authorization//
  }
 
-getAllPostagens(){
+getAllPostagens(): Observable<Postagem[]>{
+  return this.http.get<Postagem[]>('https://blogcamisadez.herokuapp.com/postagens', this.token)
 
+}
+
+getByIdPostagem(id: number): Observable<Postagem>{
+  return this.http.get<Postagem>(`https://blogcamisadez.herokuapp.com/postagens/${id}`, this.token)
 }
 
   postPostagem(postagem: Postagem): Observable<Postagem>{
@@ -24,4 +29,10 @@ getAllPostagens(){
 
   }
 
+  putPostagem(postagem: Postagem): Observable<Postagem>{
+    return this.http.put<Postagem>('https://blogcamisadez.herokuapp.com/postagens',postagem, this.token)
+  }
+// deletePostagem(id: number){
+  //   return this.http.delete(`https://turma26backend.herokuapp.com/postagens/${id}`, this.token)
+  // }
 }

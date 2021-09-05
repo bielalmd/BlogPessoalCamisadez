@@ -90,10 +90,10 @@
             id="tema"
             class="form-control"
             [(ngModel)]='idTema'
-            (change)='findTemaById(idTema)'
+            (change)='(findTemaById)'
           >
             <option value="{{temas.id}}" *ngFor="let temas of listaTemas">
-              {{ temas.descricao }}
+              {{temas.descricao}}
             </option>
           </select>
         </div>

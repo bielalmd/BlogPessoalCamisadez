@@ -8,7 +8,6 @@ import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
 
-
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -28,6 +27,7 @@ export class InicioComponent implements OnInit {
   usuario: Usuario = new Usuario()
   idUser = environment.id
   
+  
 
   constructor(
     private temaService: TemaService,
@@ -44,6 +44,7 @@ export class InicioComponent implements OnInit {
 
     
     this.findAllTemas()
+    this.getAllPostagens()
   }
   
 
@@ -52,8 +53,8 @@ export class InicioComponent implements OnInit {
       this.listaTemas = resp
     })
   }
-  findTemaById(id: number){
-    this.temaService.getTemaById(id).subscribe((resp: Temas) =>{
+  findTemaById(){
+    this.temaService.getTemaById(this.idTema).subscribe((resp: Temas) =>{
       this.tema = resp
     })
   }
@@ -63,6 +64,13 @@ export class InicioComponent implements OnInit {
     })
   }
 
+  getAllPostagens(){
+    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) =>{
+      this.listaPostagens = resp
+    })
+
+    }
+
     publicar(){
       this.tema.id = this.idTema
       this.postagem.tema = this.tema
@@ -70,13 +78,12 @@ export class InicioComponent implements OnInit {
       this.usuario.id = this.idUser
       this.postagem.usuario = this.usuario
 
-      console.log(this.postagem)
-
       
       this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
         this.postagem = resp
         alert('FUNCIONO FILHO DA PUTAAAAAA')
         this.postagem = new Postagem() 
+        this.getAllPostagens()
       })
 
     }
