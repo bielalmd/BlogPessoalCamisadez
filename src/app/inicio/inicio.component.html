@@ -30,7 +30,7 @@
     </div>
   </div>
 </div>
-<!--Cartão de entrada-->
+<!--/Cartão de entrada-->
 
 <!-- Modal -->
 <div
@@ -114,7 +114,7 @@
     </div>
   </div>
 </div>
-<!-- Modal -->
+<!-- /Modal -->
 
 <!-- Postagens -->
 <div class="container mb-5 mt-5" id="postagen">
@@ -159,7 +159,9 @@
       >
     </div>
   </nav>
+  <!-- Cards de postagens -->
 
+  <!-- Postagens do Usuario -->
   <div class="tab-content mt-3" id="myTabContent">
     <div
       class="tab-pane fade show active"
@@ -179,11 +181,17 @@
                 {{ item.data | date: "HH:mm" }}
               </small>
             </p>
+
+            <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
+            <a [routerLink]="['/postagem-delete',item.id]" class='text-danger' href="">Apagar</a>
+
           </div>
         </div>
       </div>
     </div>
-    <!-- Cards de postagens -->
+    <!-- /Postagens do Usuario -->
+
+    <!-- Todas postagens -->
     <div
       class="tab-pane fade"
       id="todasPostagens"
@@ -210,7 +218,9 @@
         </div>
       </div>
     </div>
+    <!-- /Todas postagens -->
 
+    <!-- Postagens por Tema -->
     <div
       class="tab-pane fade"
       id="postagemTema"
@@ -233,12 +243,14 @@
           </div>
         </div>
       </div>
-      <!-- Cards de postagens -->
+      <!-- /Postagens por Tema -->
+
+      <!-- /Cards de postagens -->
     </div>
   </div>
 </div>
 <br />
-<!-- Postagens -->
+<!--/Postagens -->
 
 <!-- <body class="">
         <div class="container-fluid">

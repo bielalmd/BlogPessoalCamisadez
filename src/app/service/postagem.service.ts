@@ -32,7 +32,7 @@ getByIdPostagem(id: number): Observable<Postagem>{
   putPostagem(postagem: Postagem): Observable<Postagem>{
     return this.http.put<Postagem>('https://blogcamisadez.herokuapp.com/postagens',postagem, this.token)
   }
-// deletePostagem(id: number){
-  //   return this.http.delete(`https://turma26backend.herokuapp.com/postagens/${id}`, this.token)
-  // }
+deletePostagem(id: number){
+    return this.http.delete(`https://turma26backend.herokuapp.com/postagens/${id}`, this.token)
+  }
 }
