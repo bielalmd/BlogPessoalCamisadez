@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Temas } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
+import { AlertasService } from '../service/alertas.service';
 import { AuthService } from '../service/auth.service';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
@@ -33,7 +34,8 @@ export class InicioComponent implements OnInit {
     private temaService: TemaService,
     private router: Router,
     private postagemService: PostagemService,
-    private authService: AuthService
+    private authService: AuthService,
+    private alertas: AlertasService
     
   ) { }
 
@@ -86,7 +88,7 @@ export class InicioComponent implements OnInit {
       
       this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
         this.postagem = resp
-        alert('Postagem realizada com sucesso')
+        this.alertas.showAlertSuccess('Postagem realizada com sucesso')
         this.postagem = new Postagem() 
         this.getAllPostagens()
       })
