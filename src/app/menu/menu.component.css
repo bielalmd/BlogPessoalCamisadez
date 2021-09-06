@@ -1,0 +1,12 @@
+.fs-16{
+    font-size: 16pt;
+}
+
+a{
+    cursor: pointer;
+}
+
+.cornav{
+    background-image: linear-gradient(to top, #7B91C9, #061B43);
+    opacity: 0.99;
+  }

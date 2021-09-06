@@ -1,0 +1,346 @@
+<!--Cartão de entrada-->
+<div class="container-fluid ubuft">
+  <div class="row bground d-flex align-items-center">
+    <div class="col-md-6">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+          <h1 class="fs-54 font-weight-bolder">Camisadez</h1>
+
+          <h5 class="fs-18 font-weight-bold">Seja bem vindo(a)!</h5>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center mt-5">
+        <div class="col-md-6">
+          <a
+            class="btn btn-light mr-3 my-2 but1"
+            data-toggle="modal"
+            data-target="#modEX"
+          >
+            Publicar
+          </a>
+
+          <a class="btn btn-light but2" href="#postagen">Ver Postagens</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <img src="https://imgur.com/CvwB8V7.png" alt="imagem" height="400px" />
+    </div>
+  </div>
+</div>
+<!--/Cartão de entrada-->
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="modEX"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bground">
+      <div class="modal-header">
+        <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">
+          Nova postagem.
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Fechar"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <!-- <label for="titulo">Titulo:</label> -->
+          <input
+            [(ngModel)]="postagem.titulo"
+            type="text"
+            class="form-control"
+            id="titulo"
+            placeholder="Digite o titulo da postagem..."
+          />
+        </div>
+
+        <div class="form-group my-4">
+          <!-- <label for="texto">Texto:</label> -->
+          <textarea
+            [(ngModel)]="postagem.texto"
+            name=""
+            id="texto"
+            rows="6"
+            class="form-control"
+            placeholder="digite seu texto..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="texto" class="text-white"
+            >Escolha um tema ou
+            <a data-dismiss="modal" routerLink="/tema">cadastre um novo</a> :
+          </label>
+          <select
+            name="tema"
+            id="tema"
+            class="form-control"
+            [(ngModel)]="idTema"
+            (change)="findTemaById()"
+          >
+            <option value="{{ temas.id }}" *ngFor="let temas of listaTemas">
+              {{ temas.descricao }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger but1" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-success but2"
+          data-dismiss="modal"
+          (click)="publicar()"
+        >
+          Publicar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal -->
+
+<!-- Postagens -->
+<div class="container mb-5 mt-5" id="postagen">
+  <nav>
+    <div
+      class="nav nav-tabs d-flex justify-content-center"
+      id="myTab"
+      role="tablist"
+    >
+      <a
+        (click)="findByIdUser()"
+        class="nav-item nav-link active font-weight-bolder"
+        id="MinhasPostagens-tab"
+        data-toggle="tab"
+        href="#MinhasPostagens"
+        role="tab"
+        aria-controls="MinhasPostagens"
+        aria-selected="true"
+        >Minhas Postagens</a
+      >
+
+      <a
+        class="nav-item nav-link font-weight-bolder"
+        id="todasPostagens-tab"
+        data-toggle="tab"
+        href="#todasPostagens"
+        role="tab"
+        aria-controls="todasPostagens"
+        aria-selected="false"
+        >Todas Postagens</a
+      >
+
+      <a
+        class="nav-item nav-link font-weight-bolder"
+        id="postagemTema-tab"
+        data-toggle="tab"
+        href="#postagemTema"
+        role="tab"
+        aria-controls="postagemTema"
+        aria-selected="false"
+        >Postagens por tema</a
+      >
+    </div>
+  </nav>
+  <!-- Cards de postagens -->
+
+  <!-- Postagens do Usuario -->
+  <div class="tab-content mt-3" id="myTabContent">
+    <div
+      class="tab-pane fade show active"
+      id="MinhasPostagens"
+      role="tabpanel"
+      aria-labelledby="MinhasPostagens-tab"
+    >
+      <div class="card-columns">
+        <div class="card text-center" *ngFor="let item of usuario.postagem">
+          <div class="card-body">
+            <h5 class="card-title m-0">{{ item.titulo }}</h5>
+            <small class="text-muted">Tema: {{ item.tema.descricao }}</small>
+            <p class="card-text mb-3">{{ item.texto }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                {{ item.data | date: "dd/MM/yyyy" }} ás
+                {{ item.data | date: "HH:mm" }}
+              </small>
+            </p>
+
+            <a [routerLink]="['/postagem-edit', item.id]" class="text-info mr-3" href="">Editar</a>
+            <a [routerLink]="['/postagem-delete',item.id]" class='text-danger' href="">Apagar</a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Postagens do Usuario -->
+
+    <!-- Todas postagens -->
+    <div
+      class="tab-pane fade"
+      id="todasPostagens"
+      role="tabpanel"
+      aria-labelledby="todasPostagens-tab"
+    >
+      <div class="card-columns">
+        <div class="card text-center" *ngFor="let item of listaPostagens">
+          <div class="card-body">
+            <h5 class="card-title m-0">{{ item.titulo }}</h5>
+            <small class="text-muted">Tema: {{ item.tema.descricao }}</small>
+            <p class="card-text mb-3">{{ item.texto }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                {{ item.data | date: "dd/MM/yyyy" }} ás
+                {{ item.data | date: "HH:mm" }}
+              </small>
+            </p>
+
+            <p class="card-text">
+              <small class="text-muted"> by: {{ item.usuario.usuario }} </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /Todas postagens -->
+
+    <!-- Postagens por Tema -->
+    <div
+      class="tab-pane fade"
+      id="postagemTema"
+      role="tabpanel"
+      aria-labelledby="postagemTema-tab"
+    >
+      <div class="card-columns" *ngFor="let tema of listaTemas">
+        <div class="card text-center" *ngFor="let item of tema.postagem">
+          <div class="card-body">
+            <h5 class="card-title m-0">{{ item.titulo }}</h5>
+            <p class="card-text mb-3">{{ item.texto }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                {{ item.data | date: "dd/MM/yyyy" }} ás
+                {{ item.data | date: "HH:mm" }}
+              </small>
+            </p>
+
+            <p class="card-text"><small class="text-muted"> </small></p>
+          </div>
+        </div>
+      </div>
+      <!-- /Postagens por Tema -->
+
+      <!-- /Cards de postagens -->
+    </div>
+  </div>
+</div>
+<br />
+<!--/Postagens -->
+
+<!-- <body class="">
+        <div class="container-fluid">
+      
+         
+        
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                Uma de três colunas
+              </div>
+              <div class="col-sm">
+                Uma de três colunas
+              </div>
+              <div class="col-sm">
+                Uma de três colunas
+              </div>
+            </div>
+          </div>
+      
+          <h2 class="container">Top 5 contratações da janela de transferencia de Agosto</h2>
+          <table class="table table-bordered table-dark container-fluid">
+            <thead>
+              <tr  class="lh1">
+                <th scope="col">⬇</th>
+                <th scope="col">Jogadores</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Valor de Mercado💹</th>
+                <th scope="col">Nac.</th>
+                <th scope="col">Destino.</th>
+                <th scope="col">Quantia paga.</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="lh1" scope="row">1</th>
+                <td>Jack Grealish</td>
+                <td>25</td>
+                <td>65,00 mi. €</td>
+                <td>🇬🇧</td>
+                <td>Man. City</td>
+                <td>117,50 mi. €</td>
+              </tr>
+              <tr>
+                <th class="lh1" scope="row">2</th>
+                <td>Romelu Lukaku</td> 
+                <td>28</td>
+                <td>100,00 mi. €</td>
+                <td>🇧🇪</td>
+                <td>Chelsea</td>
+                <td>115,00 mi. €</td>
+              </tr>
+              <tr>
+                <th class="lh1" scope="row">3</th>
+                <td>Jadon Sancho</td>
+                <td>21</td>
+                <td>100,00 mi. €</td>
+                <td>🇬🇧</td>
+                <td>Man. United</td>
+                <td>85,00 mi. €</td>
+              </tr>
+              <tr>
+                <th class="lh1" scope="row">4</th>
+                <td>Lionel Messi</td>
+                <td>34</td>
+                <td>80,00 mi. €</td>
+                <td>🇦🇷</td>
+                <td>Paris SG</td>
+                <td>custo zero</td>
+              </tr>
+              <tr>
+                <th class="lh1" scope="row">5</th>
+                <td>Raphaël Varane</td>
+                <td>28</td>
+                <td>70,00 mi. €</td>
+                <td>🇫🇷</td>
+                <td>Man. United</td>
+                <td>40,00 mi. €</td>
+              </tr>
+          
+              <tr  class="lh1">
+                <th scope="row">@</th>
+                <td  colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+                <td colspan="2"></td>
+                <td colspan="2"></td>
+              </tr>
+            </tbody>
+          </table>
+      
+        </div>
+      </body> -->

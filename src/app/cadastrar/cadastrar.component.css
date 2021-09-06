@@ -1,0 +1,21 @@
+#img-bg{
+    background-image: url('https://images.hdqwalls.com/download/christian-pulisic-in-fifa-22-iu-1360x768.jpg');
+    min-height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover ;
+}
+
+.bground {
+  
+    background-image: linear-gradient(80deg ,#C8C7D7, #4F5D7A,#720D1A 130%, #0A173D);
+}
+
+h1{
+    text-shadow: 0px 2px 5px black;
+}
+
+input{
+    text-shadow: 2px 3px 8px black;;
+}
+

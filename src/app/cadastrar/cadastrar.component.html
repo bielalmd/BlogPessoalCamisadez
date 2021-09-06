@@ -1,0 +1,73 @@
+<div class="container-fluid ubuft bground">
+
+    <div class="row">
+    
+        <div class="col-md-6" id="img-bg"></div>
+    
+            <div class="col-md-6 mt-5 mb-5" id="myDiv">
+    
+              <div class="row d-flex justify-content-center my-5">
+                <div class="col-md-10">
+    
+                    <h1 class="text-center font-weight-bolder ">Cadastre-se</h1>
+                    <h5 class="text-center mt-2 ">É rápido e fácil.</h5>
+    
+                    <div class="form-group my-3">
+                  
+                  <input class="form-control shadow-sm p-3 mb-4 bg-white rounded" type="text" name="nome" id="nome" placeholder="Nome..." [(ngModel)]="usuario.nome" >
+              </div>
+    
+              <div class="form-group">
+                
+                <input class="form-control shadow-sm p-3 mb-4 bg-white rounded" type="text" name="usuario" id="usuario" placeholder="Usuário..." [(ngModel)]="usuario.usuario">
+            </div>
+    
+            <div class="form-group">
+                
+                <input  class="form-control shadow-sm p-3 mb-4 bg-white rounded" type="text" name="foto" id="foto" placeholder="Link da sua foto..." [(ngModel)]='usuario.foto'>
+            </div>
+    
+            <div class="form-group">
+                
+                <input class="form-control mb-4" type="date" name="dataNasc" id="dataNasc" [(ngModel)]='usuario.dataNascimento'>
+            </div>
+    
+            <div class="form-group">
+                
+                <input class="form-control shadow-sm p-3 mb-4 bg-white rounded" type="password" name="senha" id="senha" placeholder="Sua senha..." (input)='confirmSenha($event)'>
+            </div>
+
+            <div class="form-group">
+                
+                <input class="form-control shadow-sm p-3 mb-4 bg-white rounded" type="password" name="confirmSenha" id="confirmSenha" placeholder="Confirmar sua senha..."  [(ngModel)]='usuario.senha' >
+            </div>
+    
+                <div class="form-group ">
+                    
+                <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
+                    <option>Selecione um tipo de usuário:</option>
+                    <option value="padrão">9 matador!</option>
+                    <option value="adm">10 e faixa!</option>
+                </select>
+                </div>
+                <p class="text-center font-italic text-white font-weight-bolder">Ao clicar em Cadastrar, você concorda com nossos Termos, Política de Dados e Política de Cookies.</p>
+    
+                <div class="d-flex justify-content-center">
+                    <button routerLink='/entrar' type="submit" class="btn btn-outline-danger mr-4">Cancelar</button>
+                    <button type="submit" class="btn btn-outline-success" (click)='cadastrar()'>Cadastrar</button>
+                </div>
+    
+    
+                
+                
+                
+    
+                </div>
+              </div>  
+    
+        </div>
+    
+     </div>
+    
+</div>
+
