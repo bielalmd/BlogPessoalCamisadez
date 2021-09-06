@@ -89,11 +89,11 @@
             name="tema"
             id="tema"
             class="form-control"
-            [(ngModel)]='idTema'
-            (change)='(findTemaById)'
+            [(ngModel)]="idTema"
+            (change)="findTemaById()"
           >
-            <option value="{{temas.id}}" *ngFor="let temas of listaTemas">
-              {{temas.descricao}}
+            <option value="{{ temas.id }}" *ngFor="let temas of listaTemas">
+              {{ temas.descricao }}
             </option>
           </select>
         </div>
@@ -105,7 +105,7 @@
         <button
           type="button"
           class="btn btn-success but2"
-         data-dismiss="modal"
+          data-dismiss="modal"
           (click)="publicar()"
         >
           Publicar
@@ -125,6 +125,7 @@
       role="tablist"
     >
       <a
+        (click)="findByIdUser()"
         class="nav-item nav-link active font-weight-bolder"
         id="MinhasPostagens-tab"
         data-toggle="tab"
@@ -159,23 +160,55 @@
     </div>
   </nav>
 
-  <div class="tab-content" id="myTabContent">
+  <div class="tab-content mt-3" id="myTabContent">
     <div
       class="tab-pane fade show active"
       id="MinhasPostagens"
       role="tabpanel"
       aria-labelledby="MinhasPostagens-tab"
     >
-      Lorem ipsum dolor sit.
+      <div class="card-columns">
+        <div class="card text-center" *ngFor="let item of usuario.postagem">
+          <div class="card-body">
+            <h5 class="card-title m-0">{{ item.titulo }}</h5>
+            <small class="text-muted">Tema: {{ item.tema.descricao }}</small>
+            <p class="card-text mb-3">{{ item.texto }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                {{ item.data | date: "dd/MM/yyyy" }} ás
+                {{ item.data | date: "HH:mm" }}
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-
+    <!-- Cards de postagens -->
     <div
       class="tab-pane fade"
       id="todasPostagens"
       role="tabpanel"
       aria-labelledby="todasPostagens-tab"
     >
-      Lorem, ipsum.
+      <div class="card-columns">
+        <div class="card text-center" *ngFor="let item of listaPostagens">
+          <div class="card-body">
+            <h5 class="card-title m-0">{{ item.titulo }}</h5>
+            <small class="text-muted">Tema: {{ item.tema.descricao }}</small>
+            <p class="card-text mb-3">{{ item.texto }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                {{ item.data | date: "dd/MM/yyyy" }} ás
+                {{ item.data | date: "HH:mm" }}
+              </small>
+            </p>
+
+            <p class="card-text">
+              <small class="text-muted"> by: {{ item.usuario.usuario }} </small>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div
@@ -184,7 +217,23 @@
       role="tabpanel"
       aria-labelledby="postagemTema-tab"
     >
-      Lorem ipsum dolor sit amet.
+      <div class="card-columns" *ngFor="let tema of listaTemas">
+        <div class="card text-center" *ngFor="let item of tema.postagem">
+          <div class="card-body">
+            <h5 class="card-title m-0">{{ item.titulo }}</h5>
+            <p class="card-text mb-3">{{ item.texto }}</p>
+            <p class="card-text">
+              <small class="text-muted">
+                {{ item.data | date: "dd/MM/yyyy" }} ás
+                {{ item.data | date: "HH:mm" }}
+              </small>
+            </p>
+
+            <p class="card-text"><small class="text-muted"> </small></p>
+          </div>
+        </div>
+      </div>
+      <!-- Cards de postagens -->
     </div>
   </div>
 </div>

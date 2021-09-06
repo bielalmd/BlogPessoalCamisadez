@@ -71,6 +71,8 @@ export class InicioComponent implements OnInit {
 
     }
 
+    
+
     publicar(){
       this.tema.id = this.idTema
       this.postagem.tema = this.tema
@@ -81,7 +83,7 @@ export class InicioComponent implements OnInit {
       
       this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
         this.postagem = resp
-        alert('FUNCIONO FILHO DA PUTAAAAAA')
+        alert('Postagem realizada com sucesso')
         this.postagem = new Postagem() 
         this.getAllPostagens()
       })
