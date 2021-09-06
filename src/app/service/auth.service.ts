@@ -4,6 +4,7 @@ import { UsuarioLogin } from '../model/UsuarioLogin';
 import { Observable } from 'rxjs';
 import { Usuario } from '../model/Usuario';
 import { environment } from 'src/environments/environment.prod';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -11,7 +12,10 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router
+    ) { }
 
   token = {
     headers: new HttpHeaders().set('Authorization', environment.token),
@@ -26,7 +30,12 @@ return this.http.post<UsuarioLogin>('https://blogcamisadez.herokuapp.com/usuario
       }
 
       getUserById(id: number):Observable<Usuario>{ // crase quando se usa texto fixo com variavel
-        return this.http.get<Usuario>(`https://blogcamisadez.herokuapp.com/usuarios/${id}`)
+        return this.http.get<Usuario>(`https://blogcamisadez.herokuapp.com/usuarios/${id}`, this.token)
+      }
+
+      putUsuario(usuario: Usuario): Observable<Usuario>{
+        return this.http.put<Usuario>('https://blogcamisadez.herokuapp.com/usuarios',Usuario, this.token)
+
       }
 
       logado(){
