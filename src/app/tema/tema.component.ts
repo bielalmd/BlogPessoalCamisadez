@@ -27,6 +27,11 @@ export class TemaComponent implements OnInit {
       this.router.navigate(['/entrar'])
     }
 
+    if(environment.tipo != 'adm'){
+      this.alertas.showAlertDanger('Acesso negado!! Você precisa ser Administrador para acessar o cadastro de temas!')
+      this.router.navigate(['/inicio'])
+    }
+
     this.findAllTemas()
 
   }
