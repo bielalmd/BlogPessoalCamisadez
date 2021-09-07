@@ -170,7 +170,7 @@
       aria-labelledby="MinhasPostagens-tab"
     >
       <div class="card-columns">
-        <div class="card text-center" *ngFor="let item of usuario.postagem">
+        <div class="card text-center" *ngFor="let item of usuario.postagem | orderBy : key : reverse">
           <div class="card-body">
             <h5 class="card-title m-0">{{ item.titulo }}</h5>
             <small class="text-muted">Tema: {{ item.tema.descricao }}</small>
@@ -198,8 +198,18 @@
       role="tabpanel"
       aria-labelledby="todasPostagens-tab"
     >
+
+    <div class="row d-flex justify-content-center mt-5 mb-5">
+      <div class="col-md-4">
+        <div class="form-group">
+          <input type="text" class="form-control" id="titulo" placeholder='Digite um titulo de postagem para pesquisar'[(ngModel)]='tituloPost' (keyup)='findByTituloPostagem()'> 
+        </div>
+      </div>
+    </div>
+
+
       <div class="card-columns">
-        <div class="card text-center" *ngFor="let item of listaPostagens">
+        <div class="card text-center" *ngFor="let item of listaPostagens | orderBy : key : reverse">
           <div class="card-body">
             <h5 class="card-title m-0">{{ item.titulo }}</h5>
             <small class="text-muted">Tema: {{ item.tema.descricao }}</small>
@@ -227,8 +237,19 @@
       role="tabpanel"
       aria-labelledby="postagemTema-tab"
     >
+
+
+    <div class="row d-flex justify-content-center mt-5 mb-5">
+      <div class="col-md-4">
+        <div class="form-group">
+          <input type="text" class="form-control" id="titulo" placeholder='Digite um tema para pesquisar'[(ngModel)]='nomeTema' (keyup)='findBynomeTema()'> 
+        </div>
+      </div>
+    </div>
+
+
       <div class="card-columns" *ngFor="let tema of listaTemas">
-        <div class="card text-center" *ngFor="let item of tema.postagem">
+        <div class="card text-center" *ngFor="let item of tema.postagem | orderBy : key : reverse">
           <div class="card-body">
             <h5 class="card-title m-0">{{ item.titulo }}</h5>
             <p class="card-text mb-3">{{ item.texto }}</p>
