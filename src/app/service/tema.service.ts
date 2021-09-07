@@ -23,6 +23,9 @@ export class TemaService {
   getTemaById(id: number): Observable<Temas>{
     return this.http.get<Temas>(`https://blogcamisadez.herokuapp.com/temas/${id}`, this.token)
   }
+  getByDescricao(nome: string): Observable<Temas[]>{
+    return this.http.get<Temas[]>(`https://blogcamisadez.herokuapp.com/temas/descricao/${nome}`, this.token)
+  }
 
 
   postTema(temaCadastro: Temas): Observable<Temas> { // sempre observar seu swagger e conferir a sintaxe do seu códgio para não ter falhas
