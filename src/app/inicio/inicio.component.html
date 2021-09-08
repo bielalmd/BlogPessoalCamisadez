@@ -20,13 +20,13 @@
             Publicar
           </a>
 
-          <a class="btn btn-light but2" href="#postagen">Ver Postagens</a>
+          <a class="btn btn-light but2" href="#postagen">⏬</a>
         </div>
       </div>
     </div>
 
     <div class="col-md-6">
-      <img src="https://imgur.com/CvwB8V7.png" alt="imagem" height="400px" />
+      <img src="https://imgur.com/4UnQoqM.png" alt="imagem" height="400px" />
     </div>
   </div>
 </div>
@@ -162,19 +162,19 @@
   <!-- Cards de postagens -->
 
   <!-- Postagens do Usuario -->
-  <div class="tab-content mt-3" id="myTabContent">
+  <div class="tab-content  mt-3" id="myTabContent">
     <div
-      class="tab-pane fade show active"
+      class="tab-pane fade show   active"
       id="MinhasPostagens"
       role="tabpanel"
       aria-labelledby="MinhasPostagens-tab"
     >
-      <div class="card-columns">
+      <div class="card-columns ">
         <div class="card text-center" *ngFor="let item of usuario.postagem | orderBy : key : reverse">
-          <div class="card-body">
-            <h5 class="card-title m-0">{{ item.titulo }}</h5>
-            <small class="text-muted">Tema: {{ item.tema.descricao }}</small>
-            <p class="card-text mb-3">{{ item.texto }}</p>
+          <div class="card-body cardcolor">
+            <h5 class="card-title m-0 text-white">{{ item.titulo }}</h5>
+            <small class="text-muted ">Tema: {{ item.tema.descricao }}</small>
+            <p class="card-text mb-3 text-white">{{ item.texto }}</p>
             <p class="card-text">
               <small class="text-muted">
                 {{ item.data | date: "dd/MM/yyyy" }} ás
@@ -210,10 +210,10 @@
 
       <div class="card-columns">
         <div class="card text-center" *ngFor="let item of listaPostagens | orderBy : key : reverse">
-          <div class="card-body">
-            <h5 class="card-title m-0">{{ item.titulo }}</h5>
+          <div class="card-body  cardcolor">
+            <h5 class="card-title m-0 text-white">{{ item.titulo }}</h5>
             <small class="text-muted">Tema: {{ item.tema.descricao }}</small>
-            <p class="card-text mb-3">{{ item.texto }}</p>
+            <p class="card-text mb-3 text-white">{{ item.texto }}</p>
             <p class="card-text">
               <small class="text-muted">
                 {{ item.data | date: "dd/MM/yyyy" }} ás
@@ -250,9 +250,9 @@
 
       <div class="card-columns" *ngFor="let tema of listaTemas">
         <div class="card text-center" *ngFor="let item of tema.postagem | orderBy : key : reverse">
-          <div class="card-body">
-            <h5 class="card-title m-0">{{ item.titulo }}</h5>
-            <p class="card-text mb-3">{{ item.texto }}</p>
+          <div class="card-body  cardcolor">
+            <h5 class="card-title m-0 text-white">{{ item.titulo }}</h5>
+            <p class="card-text mb-3 text-white">{{ item.texto }}</p>
             <p class="card-text">
               <small class="text-muted">
                 {{ item.data | date: "dd/MM/yyyy" }} ás
@@ -272,27 +272,13 @@
 </div>
 <br />
 <!--/Postagens -->
+<hr>
 
-<!-- <body class="">
+<!-- Top 5 transferencias -->
+<body class="container">
         <div class="container-fluid">
       
-         
-        
-          <div class="container">
-            <div class="row">
-              <div class="col-sm">
-                Uma de três colunas
-              </div>
-              <div class="col-sm">
-                Uma de três colunas
-              </div>
-              <div class="col-sm">
-                Uma de três colunas
-              </div>
-            </div>
-          </div>
-      
-          <h2 class="container">Top 5 contratações da janela de transferencia de Agosto</h2>
+          <h2 class="container text-center my-5">Top 5 contratações da janela de transferencia de Agosto</h2>
           <table class="table table-bordered table-dark container-fluid">
             <thead>
               <tr  class="lh1">
@@ -355,7 +341,7 @@
           
               <tr  class="lh1">
                 <th scope="row">@</th>
-                <td  colspan="2">Larry the Bird</td>
+                <td  colspan="2">Dados retirados do <a href='https://www.transfermarkt.com.br/statistik/saisontransfers?saison-id=2021'>Transfermarket</a></td>
                 <td>@twitter</td>
                 <td colspan="2"></td>
                 <td colspan="2"></td>
@@ -364,4 +350,5 @@
           </table>
       
         </div>
-      </body> -->
+      </body> 
+      <!-- /Top 5 transferencias -->
