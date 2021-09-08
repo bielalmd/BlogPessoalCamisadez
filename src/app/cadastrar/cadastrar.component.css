@@ -1,5 +1,5 @@
 #img-bg{
-    background-image: url('https://images.hdqwalls.com/download/christian-pulisic-in-fifa-22-iu-1360x768.jpg');
+    background-image: url('https://imgur.com/QWHURUI.jpg');
     min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
@@ -18,4 +18,14 @@ h1{
 input{
     text-shadow: 2px 3px 8px black;;
 }
+
+.card{
+    background-color:#050A16;     
+    padding: 20px; 
+    border-radius: 2%; 
+    opacity: 0.9;    
+    box-shadow: 3px 4px 2px 0px #722929f3; 
+    min-height: 100;
+       }
+
 

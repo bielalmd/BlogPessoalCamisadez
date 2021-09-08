@@ -1,13 +1,14 @@
-<div class="conteiner-fluid img-bg  ubuft">
+<div class="conteiner-fluid ubuft" id="img-bg">
   <div class="row d-flex align-items-center">
-    <div class="col-md-6 my-5">
+    <div class="col-md-12 my-xl-5 ">
       <div class="row d-flex justify-content-center">
-        <div class="col-md-6 card my-5 ">
-          <h1 class="text-center mb-3 font-weight-bold">Entrar</h1>
+        <div class="col-md-4 card my-5 ">
+          <h1 class="text-center mb-3 font-weight-bold text-white-50">Seja um Camisadez</h1>
+          <p class="text-center text-white">⬇</p>
 
-          <div class="form-group font">
+          <div class="form-group font my-2">
             <input
-              class="form-control shadow-sm p-3 mb-2 bg-white rounded"
+              class="form-control shadow-sm my-3 mb-2 bg-white rounded"
               type="text"
               name="usuario"
               id="usuario"
@@ -28,14 +29,14 @@
 
             <br />
             <div class="d-flex justify-content-center">
-              <button type="submit" class="btn btn-success" (click)="entrar()">
+              <button type="submit" class="btn btn-success my-2" (click)="entrar()">
                 Entrar
               </button>
             </div>
 
-            <hr class="mt-3 mb-5" />
+            <hr/>
 
-            <p class="text-center">
+            <p class="text-center text-white">
               Não tem uma conta? <a routerLink="/cadastrar">Cadastre-se!</a>
             </p>
           

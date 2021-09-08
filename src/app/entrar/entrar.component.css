@@ -1,24 +1,34 @@
 
-.img-bg{
-    background-image:url('https://imgur.com/AI59Cc3.jpg');
+#img-bg{
+    background-image:url('https://imgur.com/Y8Ayq4V.jpg');
+    min-height:100vh;
     background-position:center;
     background-size:cover;
     background-repeat:no-repeat;
-    min-height: 100vh;
+   
 }
 
-.bground {
+/* .bground {
   
     background-image: linear-gradient(80deg,#CEB13B 1rem, #db635b 20rem,#d1d5df ,#7B91C9, #061B43);
-    }
+    } */
 
 h1{
-    text-shadow: 0px 2px 5px black;
+    text-shadow: 0px 1px 3px rgb(196, 191, 191);
 }
 
 input{
-    text-shadow: 2px 3px 8px black;;
+    text-shadow: 2px 3px 8px #050A16;
+    opacity: 0.98;
 }
 
-.card{          background-color:#ffffff95;     padding: 30px;     border-radius: 4%;     box-shadow: 3px 3px 1px 0px #00000070;        }
+.card{          background-color:#050A16;     padding: 70px;     border-radius: 2%; opacity: 0.9;    box-shadow: 3px 4px 2px 0px #722929f3;        }
+
+hr{
+    background-color:rgb(196, 191, 191)
+}
+
+.entrar{
+    background-color: #722929f3
+}
 
