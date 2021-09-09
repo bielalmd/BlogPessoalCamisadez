@@ -17,6 +17,10 @@ export class AuthService {
     private router: Router
     ) { }
 
+//     refreshToken()
+// {} this.authService.refreshToken()
+
+
   token = {
     headers: new HttpHeaders().set('Authorization', environment.token),
   };
@@ -34,7 +38,7 @@ return this.http.post<UsuarioLogin>('https://blogcamisadez.herokuapp.com/usuario
       }
 
       putUsuario(usuario: Usuario): Observable<Usuario>{
-        return this.http.put<Usuario>('https://blogcamisadez.herokuapp.com/usuarios',Usuario, this.token)
+        return this.http.post<Usuario>('https://blogcamisadez.herokuapp.com/usuarios/alterar',Usuario, this.token)
 
       }
 

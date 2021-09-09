@@ -25,7 +25,8 @@ const routes: Routes = [
 {path: 'tema-delete/:id', component: TemaDeleteComponent},
 {path: 'postagem-edit/:id', component: PostagemEditComponent},
 {path: 'postagem-delete/:id',component: PostagemDeleteComponent},
-{path: 'usuario-edit/:id', component: UsuarioEditComponent}
+{path: 'usuario-edit/:id', component: UsuarioEditComponent},
+
 
 ];
 
