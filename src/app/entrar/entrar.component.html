@@ -50,17 +50,10 @@
  -->
 
 <body class="container col-md-12">
-  <div class="container">
+  <div class="img-card-left">
     <div class="content first-content">
       <div class="first-column">
-        <h1 class=" title-primary">Camisadez</h1>
-        <p class="description description-primary">Não tem uma conta?</p>
-        <p class="description description-primary">
-          Cadastre-se, é rápido e fácil!
-        </p>
-        <button id="signin" routerLink="/cadastrar" class="btn btn-primary">
-          sign in
-        </button>
+      
       </div>
       <div class="second-column">
         <h2 class="title title-second">Entrar</h2>
@@ -73,7 +66,7 @@
               type="text"
               name="usuario"
               id="usuario"
-              placeholder="Digite seu usuário..."
+              placeholder="Digite seu email..."
               [(ngModel)]="userLogin.usuario"
             />
           </label>
@@ -89,7 +82,10 @@
             />
           </label>
 
-          <button class="btn btn-second " (click)="entrar()">sign up</button>
+          <button class="btn btn-second" (click)="entrar()">entrar</button>
+          <p class="text-center mt-3 ">
+            Não tem uma conta? <a routerLink="/cadastrar">Cadastre-se!</a>
+          </p>
         </form>
       </div>
       <!-- second column -->
