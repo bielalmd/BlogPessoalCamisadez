@@ -1,4 +1,4 @@
-<div class="container-fluid ubuft bground">
+<!-- <div class="container-fluid ubuft bground">
 
     <div class="row">
     
@@ -47,7 +47,7 @@
                 <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
                     <option>Selecione um tipo de usuário:</option>
                     <option value="padrão">Padrão!</option>
-                    <!-- <option  value="adm">Administrador!</option> -->
+                     <option  value="adm">Administrador!</option> 
                 </select>
                 </div>
                 <p class="text-center font-italic text-white font-weight-bolder">Ao clicar em Cadastrar, você concorda com nossos Termos, Política de Dados e Política de Cookies.</p>
@@ -69,5 +69,70 @@
     
      </div>
     
-</div>
+</div> -->
+
+<body class="container col-md-12">
+    <div class="container2 ">
+      <div class="content first-content">
+          <div class="first-column">
+              <h2 class="title title-primary my-5"></h2>
+              <p class="description description-primary mt-5"></p>
+              <p class="description description-primary mt-5"></p>
+             
+          </div>    
+          <div class="second-column container">
+              <h2 class=" title-second">Crie uma conta</h2>
+              <form class="form">
+
+                  <label class="label-input" for="">
+                      <i class="far fa-user icon-modify"></i>
+                      <input type="text" name="nome" id="nome" placeholder=" Nome..." [(ngModel)]="usuario.nome" >
+                  </label>
+                  
+                  <label class="label-input" for="">
+                    <i class="far fa-envelope icon-modify"></i>
+                    <input  type="text" name="usuario" id="usuario" placeholder=" Email..." [(ngModel)]="usuario.usuario">
+                </label>
+
+                  <label class="label-input" for="">
+                    <i class="mr-auto  fas fa-camera  icon-modify"></i>
+                    <input  type="text" name="foto" id="foto" placeholder=" Link da sua foto..." [(ngModel)]='usuario.foto'>
+                </label>
+                  
+                  <label class="label-input" for="">
+                    <i class="fas fa-table icon-modify"></i>
+                      <input type="date" name="dataNasc " id="dataNasc" [(ngModel)]='usuario.dataNascimento'>
+                  </label>
+                  
+                  <label class="label-input" for="">
+                      <i class="fas fa-lock icon-modify"></i>
+                      <input type="password" name="senha" id="senha" placeholder="Sua senha..." (input)='confirmSenha($event)'>
+                  </label>
+
+                  <label class="label-input" for="">
+                    <i class="fas fa-lock icon-modify"></i>
+                    <input type="password" name="confirmSenha" id="confirmSenha" placeholder="Confirmar sua senha..."  [(ngModel)]='usuario.senha' >
+                </label>
+
+                <label class="label-input" for="">
+                    <i class="fas fa-users-cog icon-modify"></i>
+                    <select class="form-control" name="tipo" id="tipo" (change)='tipoUser($event)'>
+                        <option>Selecione um tipo de usuário:</option>
+                        <option value="padrão">Padrão!</option>
+                         <option  value="adm">Administrador!</option> 
+                    </select>
+                </label>
+
+                  
+                  <div class="d-flex justify-content-center">
+                      <button id="signin" routerLink='/entrar' class="btn mr-3 btn-danger">Cancelar</button>     
+                      <button class="btn  btn-second" (click)='cadastrar()'>Cadastrar</button>  
+
+                  </div>
+              </form>
+          </div>
+      </div>
+      
+    </div>
+  </body>
 

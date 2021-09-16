@@ -1,4 +1,4 @@
-<div class="conteiner-fluid ubuft" id="img-bg">
+<!-- <div class="conteiner-fluid ubuft" id="img-bg">
   <div class="row d-flex align-items-center">
     <div class="col-md-12 my-xl-5 ">
       <div class="row d-flex justify-content-center">
@@ -46,4 +46,54 @@
 
     
   </div>
-</div>
+</div> 
+ -->
+
+<body class="container col-md-12">
+  <div class="container">
+    <div class="content first-content">
+      <div class="first-column">
+        <h1 class=" title-primary">Camisadez</h1>
+        <p class="description description-primary">Não tem uma conta?</p>
+        <p class="description description-primary">
+          Cadastre-se, é rápido e fácil!
+        </p>
+        <button id="signin" routerLink="/cadastrar" class="btn btn-primary">
+          sign in
+        </button>
+      </div>
+      <div class="second-column">
+        <h2 class="title title-second">Entrar</h2>
+
+        <p class="description description-second"></p>
+        <form class="form">
+          <label class="label-input" for="">
+            <i class="far fa-envelope icon-modify"></i>
+            <input
+              type="text"
+              name="usuario"
+              id="usuario"
+              placeholder="Digite seu usuário..."
+              [(ngModel)]="userLogin.usuario"
+            />
+          </label>
+
+          <label class="label-input" for="">
+            <i class="fas fa-lock icon-modify"></i>
+            <input
+              type="password"
+              name="senha"
+              id="senha"
+              placeholder="Digite sua senha..."
+              [(ngModel)]="userLogin.senha"
+            />
+          </label>
+
+          <button class="btn btn-second " (click)="entrar()">sign up</button>
+        </form>
+      </div>
+      <!-- second column -->
+    </div>
+  
+  </div>
+</body>

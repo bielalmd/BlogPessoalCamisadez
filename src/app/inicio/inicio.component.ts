@@ -43,7 +43,7 @@ export class InicioComponent implements OnInit {
     private alertas: AlertasService
     
   ) { }
-
+// this.authService.refreshToken()
   ngOnInit() {
 
     window.scroll(0,0)
